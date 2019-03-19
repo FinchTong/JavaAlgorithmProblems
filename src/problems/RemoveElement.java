@@ -51,26 +51,22 @@ public class RemoveElement {
         }
     }
 
-
     /**
-     * 双指针法的一种做法
+     * 双指针的一种做法
      * @param nums
      * @param val
      * @return
      */
     public static int removeElement(int[] nums, int val) {
-        int i = 0;
-        int n = nums.length;
-        while (i < n) {
-            if (nums[i] == val) {
-                nums[i] = nums[n - 1];
-                // reduce array size by one
-                n--;
+        int number = 0;
+        for (int i=0; i<nums.length; i++) {
+            if(nums[i] == val) {
+                number++;
             } else {
-                i++;
+                nums[i-number] = nums[i];
             }
         }
-        return n;
+        return nums.length - number;
     }
 
 }
